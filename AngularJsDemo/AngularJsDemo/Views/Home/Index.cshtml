@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>AngularJS Demo</h1>
+    <p class="lead">
+        AngularJS is the knowledge, check it out
+    </p>
+</div>
+
+<div class="row" ng-controller="contactListController">
+    <div class="col-md-12">
+        Filter: <input ng-model="query" />
+    </div>
+    <div class="col-md-12">
+        <h2>Contacts</h2>
+        <div id="contactsList">
+            <div ng-repeat="contact in contacts | contactsFilter:query" class="contactItem">
+                <h4>Contact</h4>
+                <div ng-repeat="name in contact.Names">
+                    Name: {{name.Name}}
+                </div>
+                <div ng-repeat="email in contact.EmailAddresses">
+                    Email: {{email.Email}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
